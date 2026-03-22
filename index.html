@@ -261,6 +261,7 @@ button.menu-sub-btn { flex: 1; padding: 8px; font-size: 11px; cursor: pointer; }
 // 📍 住所／緯度経度ジャンプ機能（既存構造完全維持型）
 // =====================================================
     let inputMarker = null;
+    let lastJumpInput = ""; // ★ここに追加：入力値を保存する変数
 
     function jumpToLocation() {
 
@@ -269,6 +270,9 @@ button.menu-sub-btn { flex: 1; padding: 8px; font-size: 11px; cursor: pointer; }
         );
 
         if (!input) return;
+
+        lastJumpInput = input;
+
 
         // 既存マーカー削除
         if (inputMarker) {
